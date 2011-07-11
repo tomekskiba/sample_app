@@ -4,8 +4,15 @@
 }
 \margl1440\margr1440\vieww9000\viewh8400\viewkind0
 \deftab720
-\pard\pardeftab720\sl300
+\pard\pardeftab720\sl300\ql\qnatural
 
 \f0\fs26 \cf2 require\cf3  \cf4 'autotest/growl'\cf3 \
-\cf2 require\cf3  \cf4 'autotest/fsevent'\cf3 \
+\cf2 require\cf3  \cf4 'autotest/fsevent'\
+\
+Autotest.add_hook :initialize do |autotest|\
+  autotest.add_mapping(/^spec\\/requests\\/.*_spec\\.rb$/) do\
+    autotest.files_matching(/^spec\\/requests\\/.*_spec\\.rb$/)\
+  end  \
+end\
+\cf3 \
 }
